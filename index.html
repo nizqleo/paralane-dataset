@@ -64,7 +64,7 @@
         <h2 class="col-md-12 text-center">
             <b>Para-Lane</b>: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis<br>
             <small>
-              Anonymous 3DC submission(暂无)
+              Anonymous 3DV submission(暂无)
             </small>
         </h2>
     </div>
@@ -92,7 +92,7 @@
             </p>
             
             <p class = "example_image">
-                <img src="images/example_image.png" style="width:100%" class="center">
+                <img src="image_video/images/example_image.png" style="width:100%" class="center">
             </p>
         </div>
 
@@ -115,7 +115,7 @@
         <div >
             <h3>Sensor Setup and Scenes</h3>
             <hr>
-            <img src="images/unmanned vehicle.png" style="width:70%" class="center">
+            <img src="image_video/images/unmanned vehicle.png" style="width:70%" class="center">
             <p class="text-justify">
                 <br><!--打样，具体内容待输入-->
                 内容待修改:We implemented an autonomous system equipped with one front-view camera, four surround-view fisheye-cameras and three 3D laser scanners with 32 LiDAR channels to scan and collect real-world scene data. All sensors' frames timestamps are synchronized at the hardware level, and sampling points from three different laser scanners have been combined into one single LiDAR frame after motion compensation. Besides, we have add additional sensors inside which helps us obtain a high-quality initial trajectory before data alignment process, such as Inertial Navigation System (INS).
@@ -131,7 +131,7 @@
             <hr> 
             <div>
                 <video controls autoplay muted loop>
-                    <source src="video/36.mp4" type="video/mp4"/>
+                    <source src="image_video/video/20.mp4" type="video/mp4"/>
                 </video>
 
             </div>
@@ -153,7 +153,7 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Benchmark and Evaluation Metrics</h3>
             <hr>
-            <img src="images/benchmark_method.png" style="width:70%" class="center">
+            <img src="image_video/images/benchmark_method.png" style="width:70%" class="center">
             <p class="text-justify">
                 <br><!--打样，具体内容待输入-->
                 内容待修改： We selected a range of NeRF/3DGS-supported methods which specifically designed for autonomous dribing datasets for model training. The training set for each method have been standardized which includes 200 frames per sequene, and we apply coarsely labeled dynamic masks to filter out the influence of moving vehicles and pedestrians. The evaluation metrics are built based on five different tracks. (1) Single lane regression, (2) Adjacent lane prediction, (3) Second-adjacent lane prediction, (4) Adjacent lane prediction (trained from two lanes), and (5) Sandwich lane prediction (trained from two side lanes). We evenly sample 25 frames from each sequence as the ground truth, which includes Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and Learned Perceptual Image Patch Similarity (LPIPS).              <br>
@@ -165,7 +165,7 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Benchmark Result</h3>
             <hr>
-            <img src="images/benchmark_result.png" style="width:110%" class="center">
+            <img src="image_video/images/benchmark_result.png" style="width:110%" class="center">
 
             <!--创建table， 暂时不用了-->
             <!-- <table class="benchmarl_result_table">

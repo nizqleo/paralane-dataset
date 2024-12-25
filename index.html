@@ -56,9 +56,22 @@
         }
 
         video {
-            max-width: 100%;
+            width: 100%;
             height: auto;
+            display: inline-block;
         }
+
+        .video-container {
+            display:flex;
+            justify-content:center; /*视频位置居中 */
+            width:100%;
+        }
+
+        
+        .video_distance {
+            margin-bottom:20px;  /*控制多个视频之间的垂直距离 */
+        }
+
         
     </style>
 
@@ -135,13 +148,28 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Dataset Visualization</h3>
             <hr> 
-            <div>
-                <video width="5760" height ="1080" autoplay muted loop>
-                    <source src="image_video/video/output.mp4" type="video/mp4"/>
-                </video>
+            <div class = "video-distance">
+                <div class = "video_container">
+                    <video width="1920" height ="1080" autoplay muted loop>
+                        <source src="image_video/video/output.mp4" type="video/mp4"/>
+                    </video>
+                </div>
 
+                <div class = "video_container">
+                    <video width="1920" height ="1080" autoplay muted loop>
+                        <source src="image_video/video/output.mp4" type="video/mp4"/>
+                    </video>
+                </div>
+
+                <div class = "video_container">
+                    <video width="1920" height ="1080" autoplay muted loop>
+                        <source src="image_video/video/output.mp4" type="video/mp4"/>
+                    </video>
+                </div>
             </div>
             
+        
+
             <p class ="text-justify">
                 内容待输入：大概可能就是对原始数据的处理，比如说动静物体拆分，有可能
             </p>
@@ -308,10 +336,6 @@
         </div>
     </div>
 
- 
-    
-
-
   
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
@@ -351,8 +375,7 @@
                 The website template is based on <a href="https://3d-aigc.github.io/XLD/">3d-aigc</a>, who also adapted from <a href="https://jonbarron.info/zipnerf/">Zip-NeRF</a> and 
                 borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a
                     href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>.
-                For the comparison sliders we follow <a href="https://m-niemeyer.github.io/radsplat/">RadSplat</a> and
-                use <a href="https://github.com/sneas/img-comparison-slider">img-comparison-slider</a>.
+                
             </p>
         </div>
     </div>

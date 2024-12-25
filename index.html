@@ -1,35 +1,350 @@
 <!DOCTYPE html>
-<html lang="zh">
+<html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academic Projection</title>
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+
+    <title>Para-Lane: Multi-Lane Dataset Registering Parallel Scans</title>
+    <!--关于网页内容的简短介绍，后续可以修改-->
+    <meta name="description" content="Implicit multi-lane parallel scans dataset based on readl-world scans for novel driving view synthesis"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--页面分享的封面图像，后续需要输入添加，需要将图片指向为网络上可以访问的图像或者是线上服务器里的图片文件-->
+    <meta property="og:image" content="images/cover_image.png">
+
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="website"/>
+    <meta property="og:title" content="Para-Lane: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis"/>
+    <meta property="og:description" content="Para-Lane: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis"/>
+
+    <!-- <meta name="twitter:card" content="summary"/>
+    <meta name="twitter:site" content="https://fhahlbohm.github.io/inpc/"/>
+    <meta name="twitter:title" content="INPC: Implicit Neural Point Clouds for Radiance Field Rendering"/>
+    <meta name="twitter:description" content="Representing a point cloud implicitly provides better image quality for point-based radiance field methods."/>
+    <meta name="twitter:image" content="https://fhahlbohm.github.io/inpc/assets/inpc_model_tw.jpg"/> -->
+
+    <!-- <link rel="shortcut icon" href="assets/inpc_icon.ico" type="image/x-icon"> -->
+
+
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+
+    <script src="js/jquery-1.12.4.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+
+
+
+    <!--Benchark table的格式设计修改-->
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 0;
-            padding: 50px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+        .benchmark_result_table {
+            border-collapse: collapse;
+            width: 80%; /* 表格宽度 */
+            margin: auto /* 表格居中 */
         }
-        h1 {
-            font-size: 2.5em;
-        }
-        p {
-            font-size: 1.2em;
-            line-height: 1.5em;
-            max-width: 600px;
+        th, td {
+            border: 2px solid black; /* 边框 */
+            padding: 6px; /* 内边距 */
+            white-space: nowrap; /* 文本不换行 */
             text-align: center;
         }
+
+        .left {
+            text-align: left; /* 靠左 */
+        }
     </style>
+
 </head>
+
 <body>
-    <h1>Para-Lane: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis</h1>
-    <p><strong>Abstract：</strong>To evaluate end-to-end autonomous driving systems, a simulation environment based on Novel View Synthesis (NVS) techniques is essential, which synthesizes photo-realistic images and point clouds from previously recorded sequences under new vehicle poses, particularly in cross-lane scenarios. Therefore, the development of a multi-lane dataset and benchmark is necessary. While recent synthetic scene-based NVS datasets have been prepared for cross-lane benchmarking, they still lack the realism of captured images and point clouds. To further assess the performance of existing methods based on NeRF and 3DGS, we present the first multi-lane dataset registering parallel scans specifically for novel driving view synthesis dataset derived from real-world scans, comprising 25 groups of associated sequences, including 16,000 front-view images, 64,000 surround-view images, and 16,000 LiDAR frames. All frames are labeled to differentiate moving objects from static elements. Using this dataset, we evaluate the performance of existing approaches in various testing scenarios at different lanes and distances. Additionally, our method provides the solution for solving and assessing the quality of multi-sensor poses for multi-modal data alignment for curating such a dataset in real-world. We plan to continually add new sequences to test the generalization of existing methods across different scenarios. The dataset will be released publicly, and our benchmark will accept submissions thereafter.</p>
-    <p><strong>Contacts：</strong>example@example.com</p>
+<div class="container" id="main">
+    <div class="row">
+        <h2 class="col-md-12 text-center">
+            <b>Para-Lane</b>: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis<br>
+            <small>
+              Anonymous 3DC submission(暂无)
+            </small>
+        </h2>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-center">
+            <ul class="list-inline"> <!--无序列标签表，后续放作者名字，可以加超链接也可以不加-->
+                <li><!---标签1，有超链接案例-->
+                    <a style="text-decoration:none" href="http://lifuguan.github.io/">Author 1</a><sup>1,2</sup>
+                </li>
+                <li><!---标签2,无url超链接案例-->
+                    <a style="text-decoration:none" >Author 2</a><sup>1,2</sup>
+                </li>
+            </ul>
+            <sup>1</sup>Author 3 &nbsp; &nbsp; <!--nbsp为同行空格-->
+            <sup>2</sup>Author 4 <br>  <!--br, 换行键-->
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Abstract</h3>
+            <hr>
+            <p class="text-justify">
+                To evaluate end-to-end autonomous driving systems, a simulation environment based on Novel View Synthesis (NVS) techniques is essential, which synthesizes photo-realistic images and point clouds from previously recorded sequences under new vehicle poses, particularly in cross-lane scenarios. Therefore, the development of a multi-lane dataset and benchmark is necessary. While recent synthetic scene-based NVS datasets have been prepared for cross-lane benchmarking, they still lack the realism of captured images and point clouds. To further assess the performance of existing methods based on NeRF and 3DGS, we present the first multi-lane dataset registering parallel scans specifically for novel driving view synthesis dataset derived from real-world scans, comprising 25 groups of associated sequences, including 16,000 front-view images, 64,000 surround-view images, and 16,000 LiDAR frames. All frames are labeled to differentiate moving objects from static elements. Using this dataset, we evaluate the performance of existing approaches in various testing scenarios at different lanes and distances. Additionally, our method provides the solution for solving and assessing the quality of multi-sensor poses for multi-modal data alignment for curating such a dataset in real-world. We plan to continually add new sequences to test the generalization of existing methods across different scenarios. The dataset will be released publicly, and our benchmark will accept submissions thereafter.
+            </p>
+            
+            <p class = "example_image">
+                <img src="images/example_image.png" style="width:100%" class="center">
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Motivation</h3>
+            <hr>
+            <p class="text-justify">
+                <br><!--打样，具体内容待输入-->
+                内容待修改: Most existing NVS methods in autonomous driving, primarily focus on evaluating novel views based on intrepolation quality rather than lateral viewpoint shifts which is due to the lack of datasets and bencharks specifically designed for this purpose. Therefore, we implemented an autonomous system equipped with LiDAR and camera sensors to capture real-world data and develop a unified framework to construct the para-lane dataset, which can be used to feature a two-phase pose optimization mechanism for aligning data from exteroceptive sensors both temporally and spatially.
+                <br>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Sensor Setup and Scenes</h3>
+            <hr>
+            <img src="images/unmanned vehicle.png" style="width:70%" class="center">
+            <p class="text-justify">
+                <br><!--打样，具体内容待输入-->
+                内容待修改:We implemented an autonomous system equipped with one front-view camera, four surround-view fisheye-cameras and three 3D laser scanners with 32 LiDAR channels to scan and collect real-world scene data. All sensors' frames timestamps are synchronized at the hardware level, and sampling points from three different laser scanners have been combined into one single LiDAR frame after motion compensation. Besides, we have add additional sensors inside which helps us obtain a high-quality initial trajectory before data alignment process, such as Inertial Navigation System (INS).
+                <br>
+            </p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Dataset Visualization</h3>
+            <hr>    
+
+            <p class ="text-justify">
+                内容待输入：大概可能就是对原始数据的处理，比如说动静物体拆分，有可能
+            </p>
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Benchmark and Evaluation Metrics</h3>
+            <hr>
+            <img src="images/benchmark_method.png" style="width:70%" class="center">
+            <p class="text-justify">
+                <br><!--打样，具体内容待输入-->
+                内容待修改： We selected a range of NeRF/3DGS-supported methods which specifically designed for autonomous dribing datasets for model training. The training set for each method have been standardized which includes 200 frames per sequene, and we apply coarsely labeled dynamic masks to filter out the influence of moving vehicles and pedestrians. The evaluation metrics are built based on five different tracks. (1) Single lane regression, (2) Adjacent lane prediction, (3) Second-adjacent lane prediction, (4) Adjacent lane prediction (trained from two lanes), and (5) Sandwich lane prediction (trained from two side lanes). We evenly sample 25 frames from each sequence as the ground truth, which includes Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and Learned Perceptual Image Patch Similarity (LPIPS).              <br>
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Benchmark Result</h3>
+            <hr>
+            <img src="images/benchmark_result.png" style="width:110%" class="center">
+
+            <!--创建table， 暂时不用了-->
+            <!-- <table class="benchmarl_result_table">
+                <thead>
+                    <tr>
+                      <th scope="col" >Method</th>
+                      <th scope="col" colspan = "3" >Single</th>
+                      <th scope="col" colspan = "3" >Adjacent</th>
+                      <th scope="col" colspan = "3" >Sec-Adj</th>
+                      <th scope="col" colspan = "3" >Two-for-One</th>
+                      <th scope="col" colspan = "3" >Sandwich</th>
+                    </tr>
+                    <tr>
+                     <th scope="col">Metrics</th>
+                     <th scope="col">PSNR &#8593</th>
+                     <th scope="col">SSIM &#8593</th>
+                     <th scope="col">LPIPS &#8595</th>
+                     <th scope="col">PSNR &#8593</th>
+                     <th scope="col">SSIM &#8593</th>
+                     <th scope="col">LPIPS &#8595</th> 
+                     <th scope="col">PSNR &#8593</th>
+                     <th scope="col">SSIM &#8593</th>
+                     <th scope="col">LPIPS &#8595</th> 
+                     <th scope="col">PSNR &#8593</th>
+                     <th scope="col">SSIM &#8593</th>
+                     <th scope="col">LPIPS &#8595</th> 
+                     <th scope="col">PSNR &#8593</th>
+                     <th scope="col">SSIM &#8593</th>
+                     <th scope="col">LPIPS &#8595</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">3DGS</th>
+                    <th scope ="row">22.99</th>
+                    <th scope ="row">0.689</th>
+                    <th scope ="row">0.344</th>
+                    <th scope ="row">17.05</th>
+                    <th scope ="row">0.524</th>
+                    <th scope ="row">0.446</th>
+                    <th scope ="row">16.26</th>
+                    <th scope ="row">0.505</th>
+                    <th scope ="row">0.472</th>
+                    <th scope ="row">17.85</th>
+                    <th scope ="row">0.551</th>
+                    <th scope ="row">0.440</th>
+                    <th scope ="row">18.74</th>
+                    <th scope ="row">0.563</th>
+                    <th scope ="row">0.424</th>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">GaussianPro</th>
+                    <th scope ="row">22.93</th>
+                    <th scope ="row">0.686</th>
+                    <th scope ="row">0.343</th>
+                    <th scope ="row">17.01</th>
+                    <th scope ="row">0.521</th>
+                    <th scope ="row">0.446</th>
+                    <th scope ="row">16.29</th>
+                    <th scope ="row">0.505</th>
+                    <th scope ="row">0.472</th>
+                    <th scope ="row">17.83</th>
+                    <th scope ="row">0.551</th>
+                    <th scope ="row">0.439</th>
+                    <th scope ="row">18.66</th>
+                    <th scope ="row">0.562</th>
+                    <th scope ="row">0.424</th>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Scaffold-GS</th>
+                    <th scope ="row">22.96</th>
+                    <th scope ="row">0.675</th>
+                    <th scope ="row">0.364</th>
+                    <th scope ="row">17.59</th>
+                    <th scope ="row">0.538</th>
+                    <th scope ="row">0.450</th>
+                    <th scope ="row">17.09</th>
+                    <th scope ="row">0.525</th>
+                    <th scope ="row">0.470</th>
+                    <th scope ="row">18.62</th>
+                    <th scope ="row">0.565</th>
+                    <th scope ="row">0.437</th>
+                    <th scope ="row">19.20</th>
+                    <th scope ="row">0.574</th>
+                    <th scope ="row">0.423</th>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">2DGS</th>
+                    <th scope ="row">22.29</th>
+                    <th scope ="row">0.651</th>
+                    <th scope ="row">0.395</th>
+                    <th scope ="row">16.79</th>
+                    <th scope ="row">0.523</th>
+                    <th scope ="row">0.469</th>
+                    <th scope ="row">16.01</th>
+                    <th scope ="row">0.510</th>
+                    <th scope ="row">0.494</th>
+                    <th scope ="row">17.46</th>
+                    <th scope ="row">0.548</th>
+                    <th scope ="row">0.466</th>
+                    <th scope ="row">19.04</th>
+                    <th scope ="row">0.572</th>
+                    <th scope ="row">0.451</th>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">Street Gaussians</th>
+                    <th scope ="row">22.56</th>
+                    <th scope ="row">0.643</th>
+                    <th scope ="row">0.353</th>
+                    <th scope ="row">17.50</th>
+                    <th scope ="row">0.510</th>
+                    <th scope ="row">0.456</th>
+                    <th scope ="row">16.16</th>
+                    <th scope ="row">0.496</th>
+                    <th scope ="row">0.480</th>
+                    <th scope ="row">17.87</th>
+                    <th scope ="row">0.555</th>
+                    <th scope ="row">0.453</th>
+                    <th scope ="row">18.91</th>
+                    <th scope ="row">0.561</th>
+                    <th scope ="row">0.443</th>
+                  </tr> -->
+                <!-- </tbody>
+            </table> -->
+                    
+            <p class="text-justify">
+
+                we found exactly the same conclusion for all methods: the performance gradually decreases in the following sequence: Single
+                Sandwich > Two-for-One > Adjacent > Second-Adjacent. When the training and testing views are on the same trajectory, all methods achieve the best NVS results. However, when the testing viewpoint undergoes lateral shifts, the results are compromised to varying degrees.
+            </p>
+        </div>
+    </div>
+
+ 
+    
+
+
+  
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Dataset Download</h3>
+            
+            <hr>
+            <p class="text-justify">
+                <br>
+                Our dataset is publicly available, but requires a permission request via email
+                <br>
+                <b>Contact email:</b> xxxxxxxx@cainiao.com
+                <br>
+                <b>Format:</b>
+            
+            </p>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            <h3>Citation</h3>
+            <hr>
+            <pre><code>@article{null,
+    title={Para-Lane: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis},
+    author={anonymous},
+    journal={暂无},
+    year={2025}
+    }</code></pre>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
+            
+            <p class="text-justify">
+                
+                The website template is based on <a href="https://3d-aigc.github.io/XLD/">3d-aigc</a>, who also adapted from <a href="https://jonbarron.info/zipnerf/">Zip-NeRF</a> and 
+                borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a
+                    href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>.
+                For the comparison sliders we follow <a href="https://m-niemeyer.github.io/radsplat/">RadSplat</a> and
+                use <a href="https://github.com/sneas/img-comparison-slider">img-comparison-slider</a>.
+            </p>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

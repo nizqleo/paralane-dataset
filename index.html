@@ -54,6 +54,12 @@
         .left {
             text-align: left; /* 靠左 */
         }
+
+        video {
+            max-width: 100%;
+            height: auto;
+        }
+        
     </style>
 
 </head>
@@ -130,13 +136,12 @@
             <h3>Dataset Visualization</h3>
             <hr> 
             <div>
-                <video controls autoplay muted loop>
-                    <source src="image_video/video/20.mp4" type="video/mp4"/>
+                <video width="5760" height ="1080" autoplay muted loop>
+                    <source src="image_video/video/output.mp4" type="video/mp4"/>
                 </video>
 
             </div>
             
-
             <p class ="text-justify">
                 内容待输入：大概可能就是对原始数据的处理，比如说动静物体拆分，有可能
             </p>

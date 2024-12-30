@@ -55,21 +55,18 @@
             text-align: left; /* 靠左 */
         }
 
-        video {
-            width: 100%;
-            height: auto;
-            display: inline-block;
-        }
-
-        .video-container {
+        .video_container {
             display:flex;
             justify-content:center; /*视频位置居中 */
-            width:100%;
+            width:50%;
+
         }
 
         
         .video_distance {
-            margin-bottom:20px;  /*控制多个视频之间的垂直距离 */
+            display:flex;
+
+            justify-content: center;
         }
 
         
@@ -159,21 +156,21 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Dataset Visualization</h3>
             <hr> 
-            <div class = "video-distance">
+            <div class = "video_distance">
                 <div class = "video_container">
-                    <video width="1920" height ="1080" autoplay muted loop>
+                    <video width="350" autoplay muted loop>
                         <source src="image_video/video/video1.mp4" type="video/mp4"/>
                     </video>
                 </div>
 
-                <div class = "video_container">
-                    <video width="1920" height ="1080" autoplay muted loop>
+                <div class = "video_ontainer">
+                    <video width="350" autoplay muted loop>
                         <source src="image_video/video/video2.mp4" type="video/mp4"/>
                     </video>
                 </div>
 
                 <div class = "video_container">
-                    <video width="1920" height ="1080" autoplay muted loop>
+                    <video width="350" autoplay muted loop>
                         <source src="image_video/video/video3.mp4" type="video/mp4"/>
                     </video>
                 </div>

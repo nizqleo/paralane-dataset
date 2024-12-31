@@ -100,26 +100,25 @@
             <h3>Abstract</h3>
             <hr>
             <p class="text-justify">
-                To evaluate end-to-end autonomous driving systems, a simulation environment based on Novel View Synthesis (NVS) techniques is essential, which synthesizes photo-realistic images and point clouds from previously recorded sequences under new vehicle poses, particularly in cross-lane scenarios. Therefore, the development of a multi-lane dataset and benchmark is necessary. While recent synthetic scene-based NVS datasets have been prepared for cross-lane benchmarking, they still lack the realism of captured images and point clouds. To further assess the performance of existing methods based on NeRF and 3DGS, we present the first multi-lane dataset registering parallel scans specifically for novel driving view synthesis dataset derived from real-world scans, comprising 25 groups of associated sequences, including 16,000 front-view images, 64,000 surround-view images, and 16,000 LiDAR frames. All frames are labeled to differentiate moving objects from static elements. Using this dataset, we evaluate the performance of existing approaches in various testing scenarios at different lanes and distances. Additionally, our method provides the solution for solving and assessing the quality of multi-sensor poses for multi-modal data alignment for curating such a dataset in real-world. We plan to continually add new sequences to test the generalization of existing methods across different scenarios. The dataset will be released publicly, and our benchmark will accept submissions thereafter.
+                To evaluate end-to-end autonomous driving systems, 
+                    a simulation environment based on Novel View Synthesis (NVS) techniques is essential, 
+                    which synthesizes photo-realistic images and point clouds from previously recorded sequences under new vehicle poses, 
+                    particularly in cross-lane scenarios. 
+                Therefore, the development of a multi-lane dataset and benchmark is necessary.
+                While recent synthetic scene-based NVS datasets have been prepared for cross-lane benchmarking, 
+                    they still lack the realism of captured images and point clouds. 
+                To further assess the performance of existing methods based on NeRF and 3DGS, 
+                    we present the first multi-lane dataset registering parallel scans specifically for novel driving view synthesis dataset derived from real-world scans, 
+                    comprising 25 groups of associated sequences, including 16,000 front-view images, 64,000 surround-view images, 
+                    and 16,000 LiDAR frames. All frames are labeled to differentiate moving objects from static elements. 
+                Using this dataset, we evaluate the performance of existing approaches in various testing scenarios at different lanes and distances. 
+                Additionally, our method provides the solution for solving and assessing the quality of multi-sensor poses for multi-modal data alignment for curating such a dataset in real-world. 
             </p>
-            
             <p class = "example_image">
                 <img src="image_video/images/example_image.png" style="width:100%" class="center">
             </p>
         </div>
 
-    </div>
-
-    <div class="row">
-        <div class="col-md-10 col-md-offset-1">
-            <h3>Motivation</h3>
-            <hr>
-            <p class="text-justify">
-                <br><!--打样，具体内容待输入-->
-                内容待修改: Most existing NVS methods in autonomous driving, primarily focus on evaluating novel views based on intrepolation quality rather than lateral viewpoint shifts which is due to the lack of datasets and bencharks specifically designed for this purpose. Therefore, we implemented an autonomous system equipped with LiDAR and camera sensors to capture real-world data and develop a unified framework to construct the para-lane dataset, which can be used to feature a two-phase pose optimization mechanism for aligning data from exteroceptive sensors both temporally and spatially.
-                <br>
-            </p>
-        </div>
     </div>
 
 
@@ -129,8 +128,10 @@
             <hr>
             <img src="image_video/images/unmanned vehicle.png" style="width:50%" class="center">
             <p class="text-justify">
-                <br><!--打样，具体内容待输入-->
-                内容待修改:We implemented an autonomous system equipped with one front-view camera, four surround-view fisheye-cameras and three 3D laser scanners with 32 LiDAR channels to scan and collect real-world scene data. All sensors' frames timestamps are synchronized at the hardware level, and sampling points from three different laser scanners have been combined into one single LiDAR frame after motion compensation. Besides, we have add additional sensors inside which helps us obtain a high-quality initial trajectory before data alignment process, such as Inertial Navigation System (INS).
+                <br>
+                We implemented an autonomous system equipped with one front-view camera, four surround-view fisheye-cameras and three 3D laser scanners with 32 LiDAR channels to scan and collect real-world scene data. 
+                All sensors' frames timestamps are synchronized at the hardware level
+                , and sampling points from three different laser scanners have been combined into one single LiDAR frame after motion compensation. Besides, we have add additional sensors inside which helps us obtain a high-quality initial trajectory before data alignment process, such as Inertial Navigation System (INS).
                 <br>
             </p>
         </div>
@@ -141,8 +142,6 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Dataset Visualization</h3>
             <hr> 
-            
-
             <div class="item active">
                 <div class="row text-center">
                     <div class="col-md-4">
@@ -166,26 +165,31 @@
             <br>
 
             <p class ="text-justify">
-                内容待输入：大概可能就是对原始数据的处理，比如说动静物体拆分，有可能
+                <font color="red">
+                    （More scenes are to be shown here, 3~4 scenes）
+                </font>
             </p>
-
         </div>
     </div>
 
 
-
-
-
-
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
-            <h3>Benchmark and Evaluation Metrics</h3>
+            <h3>Evaluation Metrics</h3>
             <hr>
-            <img src="image_video/images/benchmark_method.png" style="width:70%" class="center">
             <p class="text-justify">
                 <br><!--打样，具体内容待输入-->
-                内容待修改： We selected a range of NeRF/3DGS-supported methods which specifically designed for autonomous dribing datasets for model training. The training set for each method have been standardized which includes 200 frames per sequene, and we apply coarsely labeled dynamic masks to filter out the influence of moving vehicles and pedestrians. The evaluation metrics are built based on five different tracks. (1) Single lane regression, (2) Adjacent lane prediction, (3) Second-adjacent lane prediction, (4) Adjacent lane prediction (trained from two lanes), and (5) Sandwich lane prediction (trained from two side lanes). We evenly sample 25 frames from each sequence as the ground truth, which includes Peak Signal-to-Noise Ratio (PSNR), Structural Similarity Index (SSIM), and Learned Perceptual Image Patch Similarity (LPIPS).              <br>
+                We benchmarked a range of 3DGS-based methods on five different tracks. 
+                    (1) Single lane regression, 
+                    (2) Adjacent lane prediction, 
+                    (3) Second-adjacent lane prediction, 
+                    (4) Adjacent lane prediction (trained from two lanes), 
+                    and (5) Sandwich lane prediction (trained from two side lanes). 
+                The image below shows the composition of the training sets(colored in <font color="blue">blue</font>) and testing sets(colored in <font color="red">red</font>) for each track.
+                For each track, we uniformly sample 200 frames from training sequences for model learning and 25 frames from test sequences as the ground truth.
+                <br>
             </p>
+            <img src="image_video/images/benchmark_method.png" style="width:50%" class="center">
         </div>
     </div>
 
@@ -193,13 +197,19 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Benchmark Result</h3>
             <hr>
-            <img src="image_video/images/benchmark_result.png" style="width:100%" class="center">
             <br>
             <p class="text-justify">
-
-                we found exactly the same conclusion for all methods: the performance gradually decreases in the following sequence: Single
-                Sandwich > Two-for-One > Adjacent > Second-Adjacent. When the training and testing views are on the same trajectory, all methods achieve the best NVS results. However, when the testing viewpoint undergoes lateral shifts, the results are compromised to varying degrees.
+                We found exactly the same conclusion for all methods: 
+                    the performance gradually decreases in the following sequence: 
+                        Single > Sandwich > Two-for-One > Adjacent > Second-Adjacent. 
+                When the training and testing views are on the same trajectory, all methods achieve the best NVS results. 
+                However, when the testing viewpoint undergoes lateral shifts, the results are compromised to varying degrees.
             </p>
+            <img src="image_video/images/benchmark_result.png" style="width:100%" class="center">
+            <img src="image_video/images/exp-results.png" style="width:100%" class="center">
+            <font color="red">
+                （More results are to be shown here in videos, 3~4 scenes）
+            </font>
         </div>
     </div>
 
@@ -207,14 +217,15 @@
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <h3>Dataset Download</h3>
-            
             <hr>
             <p class="text-justify">
-                Our dataset is publicly available, but requires a permission request via email
+                Our dataset is now publicly available. Please send an email to request access.
                 <br>
                 <b>Contact email:</b> paralane_requests@outlook.com
                 <br>
-            
+                <font color="red">
+                    （More information about are data formatting & preprocess）
+                </font>
             </p>
         </div>
     </div>
@@ -223,7 +234,7 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Citation</h3>
             <hr>
-            <pre><code>@article{Ni2025Para-lane
+            <pre><code>@article{xxxxxxx
     title={Para-Lane: Multi-Lane Dataset Registering Parallel Scans for Benchmarking Novel View Synthesis},
     author={Ziqian Ni and Sicong Du and Zhenghua Hou and Chenming Wu and Sheng Yang},
     journal={Internation conference on 3D Vision},
@@ -236,8 +247,7 @@
         <div class="col-md-10 col-md-offset-1">
             
             <p class="text-justify">
-                
-                The website template is based on <a href="https://3d-aigc.github.io/XLD/">3d-aigc</a>, who also adapted from <a href="https://jonbarron.info/zipnerf/">Zip-NeRF</a> and 
+                The website template is based on <a href="https://3d-aigc.github.io/XLD/">XLD</a>, who also adapted from <a href="https://jonbarron.info/zipnerf/">Zip-NeRF</a> and 
                 borrowed from <a href="http://mgharbi.com/">Michaël Gharbi</a> and <a
                     href="https://dorverbin.github.io/refnerf">Ref-NeRF</a>.
                 

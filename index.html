@@ -54,21 +54,6 @@
         .left {
             text-align: left; /* 靠左 */
         }
-
-        .video_container {
-            display:flex;
-            justify-content:center; /*视频位置居中 */
-            width:50%;
-
-        }
-
-        
-        .video_distance {
-            display:flex;
-
-            justify-content: center;
-        }
-
         
     </style>
 
@@ -142,7 +127,7 @@
         <div class = 'col-md-10 col-md-offset-1'>
             <h3>Sensor Setup and Scenes</h3>
             <hr>
-            <img src="image_video/images/unmanned vehicle.png" style="width:70%" class="center">
+            <img src="image_video/images/unmanned vehicle.png" style="width:50%" class="center">
             <p class="text-justify">
                 <br><!--打样，具体内容待输入-->
                 内容待修改:We implemented an autonomous system equipped with one front-view camera, four surround-view fisheye-cameras and three 3D laser scanners with 32 LiDAR channels to scan and collect real-world scene data. All sensors' frames timestamps are synchronized at the hardware level, and sampling points from three different laser scanners have been combined into one single LiDAR frame after motion compensation. Besides, we have add additional sensors inside which helps us obtain a high-quality initial trajectory before data alignment process, such as Inertial Navigation System (INS).
@@ -156,27 +141,29 @@
         <div class="col-md-10 col-md-offset-1">
             <h3>Dataset Visualization</h3>
             <hr> 
-            <div class = "video_distance">
-                <div class = "video_container">
-                    <video width="350" autoplay muted loop>
-                        <source src="image_video/video/video1.mp4" type="video/mp4"/>
-                    </video>
-                </div>
+            
 
-                <div class = "video_ontainer">
-                    <video width="350" autoplay muted loop>
-                        <source src="image_video/video/video2.mp4" type="video/mp4"/>
-                    </video>
-                </div>
-
-                <div class = "video_container">
-                    <video width="350" autoplay muted loop>
-                        <source src="image_video/video/video3.mp4" type="video/mp4"/>
-                    </video>
+            <div class="item active">
+                <div class="row text-center">
+                    <div class="col-md-4">
+                        <video id="r00"  width="90%" autoplay loop muted>
+                            <source src="image_video/video/video1.mp4" type="video/mp4"/>
+                        </video>
+                    </div>
+                    <div class="col-md-4">
+                      <video id="r01" width="90%" autoplay loop muted>
+                          <source src="image_video/video/video2.mp4" type="video/mp4"/>
+                      </video>
+                  </div>
+                    <div class="col-md-4">
+                        <video id="r02" width="90%" autoplay loop muted>
+                            <source src="image_video/video/video3.mp4"type="video/mp4"/>
+                        </video>
+                    </div>
                 </div>
             </div>
-            
-        
+
+            <br>
 
             <p class ="text-justify">
                 内容待输入：大概可能就是对原始数据的处理，比如说动静物体拆分，有可能
@@ -207,135 +194,7 @@
             <h3>Benchmark Result</h3>
             <hr>
             <img src="image_video/images/benchmark_result.png" style="width:110%" class="center">
-
-            <!--创建table， 暂时不用了-->
-            <!-- <table class="benchmarl_result_table">
-                <thead>
-                    <tr>
-                      <th scope="col" >Method</th>
-                      <th scope="col" colspan = "3" >Single</th>
-                      <th scope="col" colspan = "3" >Adjacent</th>
-                      <th scope="col" colspan = "3" >Sec-Adj</th>
-                      <th scope="col" colspan = "3" >Two-for-One</th>
-                      <th scope="col" colspan = "3" >Sandwich</th>
-                    </tr>
-                    <tr>
-                     <th scope="col">Metrics</th>
-                     <th scope="col">PSNR &#8593</th>
-                     <th scope="col">SSIM &#8593</th>
-                     <th scope="col">LPIPS &#8595</th>
-                     <th scope="col">PSNR &#8593</th>
-                     <th scope="col">SSIM &#8593</th>
-                     <th scope="col">LPIPS &#8595</th> 
-                     <th scope="col">PSNR &#8593</th>
-                     <th scope="col">SSIM &#8593</th>
-                     <th scope="col">LPIPS &#8595</th> 
-                     <th scope="col">PSNR &#8593</th>
-                     <th scope="col">SSIM &#8593</th>
-                     <th scope="col">LPIPS &#8595</th> 
-                     <th scope="col">PSNR &#8593</th>
-                     <th scope="col">SSIM &#8593</th>
-                     <th scope="col">LPIPS &#8595</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th scope="row">3DGS</th>
-                    <th scope ="row">22.99</th>
-                    <th scope ="row">0.689</th>
-                    <th scope ="row">0.344</th>
-                    <th scope ="row">17.05</th>
-                    <th scope ="row">0.524</th>
-                    <th scope ="row">0.446</th>
-                    <th scope ="row">16.26</th>
-                    <th scope ="row">0.505</th>
-                    <th scope ="row">0.472</th>
-                    <th scope ="row">17.85</th>
-                    <th scope ="row">0.551</th>
-                    <th scope ="row">0.440</th>
-                    <th scope ="row">18.74</th>
-                    <th scope ="row">0.563</th>
-                    <th scope ="row">0.424</th>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">GaussianPro</th>
-                    <th scope ="row">22.93</th>
-                    <th scope ="row">0.686</th>
-                    <th scope ="row">0.343</th>
-                    <th scope ="row">17.01</th>
-                    <th scope ="row">0.521</th>
-                    <th scope ="row">0.446</th>
-                    <th scope ="row">16.29</th>
-                    <th scope ="row">0.505</th>
-                    <th scope ="row">0.472</th>
-                    <th scope ="row">17.83</th>
-                    <th scope ="row">0.551</th>
-                    <th scope ="row">0.439</th>
-                    <th scope ="row">18.66</th>
-                    <th scope ="row">0.562</th>
-                    <th scope ="row">0.424</th>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">Scaffold-GS</th>
-                    <th scope ="row">22.96</th>
-                    <th scope ="row">0.675</th>
-                    <th scope ="row">0.364</th>
-                    <th scope ="row">17.59</th>
-                    <th scope ="row">0.538</th>
-                    <th scope ="row">0.450</th>
-                    <th scope ="row">17.09</th>
-                    <th scope ="row">0.525</th>
-                    <th scope ="row">0.470</th>
-                    <th scope ="row">18.62</th>
-                    <th scope ="row">0.565</th>
-                    <th scope ="row">0.437</th>
-                    <th scope ="row">19.20</th>
-                    <th scope ="row">0.574</th>
-                    <th scope ="row">0.423</th>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">2DGS</th>
-                    <th scope ="row">22.29</th>
-                    <th scope ="row">0.651</th>
-                    <th scope ="row">0.395</th>
-                    <th scope ="row">16.79</th>
-                    <th scope ="row">0.523</th>
-                    <th scope ="row">0.469</th>
-                    <th scope ="row">16.01</th>
-                    <th scope ="row">0.510</th>
-                    <th scope ="row">0.494</th>
-                    <th scope ="row">17.46</th>
-                    <th scope ="row">0.548</th>
-                    <th scope ="row">0.466</th>
-                    <th scope ="row">19.04</th>
-                    <th scope ="row">0.572</th>
-                    <th scope ="row">0.451</th>
-                  </tr>
-
-                  <tr>
-                    <th scope="row">Street Gaussians</th>
-                    <th scope ="row">22.56</th>
-                    <th scope ="row">0.643</th>
-                    <th scope ="row">0.353</th>
-                    <th scope ="row">17.50</th>
-                    <th scope ="row">0.510</th>
-                    <th scope ="row">0.456</th>
-                    <th scope ="row">16.16</th>
-                    <th scope ="row">0.496</th>
-                    <th scope ="row">0.480</th>
-                    <th scope ="row">17.87</th>
-                    <th scope ="row">0.555</th>
-                    <th scope ="row">0.453</th>
-                    <th scope ="row">18.91</th>
-                    <th scope ="row">0.561</th>
-                    <th scope ="row">0.443</th>
-                  </tr> -->
-                <!-- </tbody>
-            </table> -->
-                    
+            <br>
             <p class="text-justify">
 
                 we found exactly the same conclusion for all methods: the performance gradually decreases in the following sequence: Single
@@ -351,7 +210,6 @@
             
             <hr>
             <p class="text-justify">
-                <br>
                 Our dataset is publicly available, but requires a permission request via email
                 <br>
                 <b>Contact email:</b> paralane_requests@outlook.com
